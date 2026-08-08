@@ -22,7 +22,17 @@ List<String> listMake(){
     return this.deviceRepository.findMake(); // findMake() method is to be created in deviceRepository
    }
 
+
+   @Get("/list")
+    List<DeviceDTO> list(){
+        return this.deviceRepository.list(); // returns only make and year
+    }
 }
-/* Browser-endpoint:
+
+
+
+/* Endpoint testing:
    http://localhost:8080/devices/makes
+   $ curl http://localhost:8080/devices/makes
+   http://localhost:8080/devices/list
 */

@@ -15,6 +15,7 @@ public interface DeviceRepository extends CrudRepository<@Valid Device, @Positiv
     List<String> findMake(); // User method to be used in Device Controller
 
     List<Device> findByHealthCheckGreaterThan(int healthCheck);
-   //  List<DeviceDTO> list();  // For DTO reason
+
+    List<DeviceDTO> list();  // For DTO class
 
 }

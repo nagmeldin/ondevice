@@ -48,4 +48,5 @@ public class Application {
 /* Endpoint testing:
    http://localhost:8080/devices/makes
    $ curl http://localhost:8080/devices/makes
+   http://localhost:8080/devices/list
 */
