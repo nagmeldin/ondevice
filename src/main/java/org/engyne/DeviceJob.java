@@ -20,7 +20,6 @@ public class DeviceJob {
 
     @Scheduled( fixedRate = "25s", condition = "#{!this.configuration.isPaused }")
     void reportUnhealthy() {
-
         System.out.println("Device is unhealthy");
 
     }
