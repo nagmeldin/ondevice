@@ -8,14 +8,19 @@ import jakarta.inject.Singleton;
 
 import java.util.List;
 
+
 @Singleton
 public class Application {
 
     private final DeviceRepository deviceRepository;
+    private final RankRepository rankRepository;
 
-    public Application(DeviceRepository deviceRepository) {
+    public Application(DeviceRepository deviceRepository, RankRepository rankRepository) {
         this.deviceRepository = deviceRepository;
+        this.rankRepository = rankRepository;
     }
+
+
 
     public static void main(String[] args) {
         Micronaut.run(Application.class, args);
@@ -40,7 +45,16 @@ public class Application {
                 new Device(null, "F5", "r2600", "F5OS", 2011, 7),
                 new Device(null, "F5", "r5800", "F5OS", 2018, 3)
            )
-        );
+        ); // End devices
+
+
+        rankRepository.saveAll(List.of(
+                        new Rank(null, 3, Rank.Status.READY, "To be deployed in lab-1 soon"),
+                        new Rank(null, 2, Rank.Status.PHASEOUT, "Has been sold to client"),
+                        new Rank(null, 4, Rank.Status.STOPPED, "Under maintenance")
+                )
+        ); // ranks
+
     }
 
 }
@@ -49,4 +63,5 @@ public class Application {
    http://localhost:8080/devices/makes
    $ curl http://localhost:8080/devices/makes
    http://localhost:8080/devices/list
+   http://localhost:8080/ranks/grades
 */
