@@ -51,7 +51,7 @@ public class Application {
         rankRepository.saveAll(List.of(
                         new Rank(null, 3, Rank.Status.READY, "To be deployed in lab-1 soon"),
                         new Rank(null, 2, Rank.Status.PHASEOUT, "Has been sold to client"),
-                        new Rank(null, 4, Rank.Status.STOPPED, "Under maintenance")
+                        new Rank(null, 4, Rank.Status.STOPPED, "Under going maintenance")
                 )
         ); // ranks
 
@@ -64,4 +64,5 @@ public class Application {
    $ curl http://localhost:8080/devices/makes
    http://localhost:8080/devices/list
    http://localhost:8080/ranks/grades
+   http://localhost:8080/ranks/statuses
 */

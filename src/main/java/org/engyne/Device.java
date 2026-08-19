@@ -21,8 +21,6 @@ public record Device(
         @Min(1)
         @Max(10)
         int healthCheck
-//        @NotNull
-//        Status status
 
 ) {
 }
