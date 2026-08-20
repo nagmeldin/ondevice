@@ -11,7 +11,6 @@ public class DeviceController {
 
     final DeviceRepository deviceRepository;
 
-
     public DeviceController(DeviceRepository deviceRepository) {
         this.deviceRepository = deviceRepository;
     }
