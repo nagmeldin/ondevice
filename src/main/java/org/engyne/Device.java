@@ -12,10 +12,15 @@ public record Device(
         @GeneratedValue
         @Id
         Long id,
+
         @NotNull
         String make,
+
+        @NotNull
         String model,
+
         String os,
+
         @Positive
         int year,
         @Min(1)

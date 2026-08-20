@@ -19,19 +19,66 @@ class OndeviceTest {
     @Inject
     EmbeddedApplication<?> application;
 
-    // 1. Database testing:
+    // A. Database testing(Server-side):
     @Test
-    void testItWorks( DeviceRepository deviceRepository) {
+    void testDeviceData( DeviceRepository deviceRepository) {
         Assertions.assertEquals( 10, deviceRepository.count());
     }
 
-    // 2. EndPoints testing:
+    @Test
+    void testPointeData( PointRepository pointRepository) {
+        Assertions.assertEquals( 5, pointRepository.count());
+    }
+    @Test
+    void testLocationData( LocationRepository locationRepository) {
+        Assertions.assertEquals( 5, locationRepository.count());
+    }
+
+
+
+    // B. EndPoints testing(client-side):
+
     @Test // use interface hereunder
-    void testEndPoint(DeviceClient deviceClient) {
-        List<String> makes = deviceClient.getMake();       // from hereunder
+    void testDeviceMakeEndPoint(DeviceClient deviceClient) {
+        List<String> makes = deviceClient.getMake();
         Assertions.assertEquals( 10, makes.size());
     }
-    /* -----***----- */
+
+    @Test // use interface hereunder
+    void testDeviceModelEndPoint(DeviceClient deviceClient) {
+        List<String> models = deviceClient.getModel();
+        Assertions.assertEquals( 10, models.size());
+    }
+
+
+    @Test // use interface hereunder
+    void testPointXEndPoint(PointClient pointClient) {
+        List<String> xs = pointClient.getX();
+        Assertions.assertEquals( 5, xs.size());
+    }
+
+    @Test // use interface hereunder
+    void testPointYEndPoint(PointClient pointClient) {
+        List<String> ys = pointClient.getY();
+        Assertions.assertEquals( 5, ys.size());
+    }
+
+
+    @Test // use interface hereunder
+    void testLocationCityEndPoint(LocationClient locationClient) {
+        List<String> cities = locationClient.getCity();
+        Assertions.assertEquals( 5, cities.size());
+    }
+
+    @Test // use interface hereunder
+    void testLocationMarketEndPoint(LocationClient locationClient) {
+        List<String> markets = locationClient.getMarket();
+        Assertions.assertEquals( 5, markets.size());
+    }
+
+    /* ------------*** Interfaces *******--------------------- */
+
+
     @Retryable
     @Client("/devices")
     interface DeviceClient {
@@ -39,6 +86,30 @@ class OndeviceTest {
         @Get("/makes")
         List<String> getMake();
 
+        @Get("/models")
+        List<String> getModel();
+    }
+
+    @Retryable
+    @Client("/points")
+    interface PointClient {
+
+        @Get("/xs")
+        List<String> getX();
+
+        @Get("/ys")
+        List<String> getY();
+    }
+
+    @Retryable
+    @Client("/locales")
+    interface LocationClient {
+
+        @Get("/cities")
+        List<String> getCity();
+
+        @Get("/markets")
+        List<String> getMarket();
     }
 
 }
