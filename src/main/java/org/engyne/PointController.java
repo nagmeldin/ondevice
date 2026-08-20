@@ -36,5 +36,5 @@ public class PointController {
         return resultStr;
     }
 
-
 }
+

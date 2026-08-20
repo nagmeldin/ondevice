@@ -12,9 +12,3 @@ public record Point(
         Double y
 ) {}
 
-/* Endpoint testing:
-    http://localhost:8080/points/xs
-    http://localhost:8080/points/ys
-   $ curl http://localhost:8080/points/xs
-    $ curl http://localhost:8080/points/ys
-*/

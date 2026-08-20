@@ -66,7 +66,7 @@ public class Application {
                 )
         ); // End points
 
-        /*
+
         locationRepository.saveAll(List.of(
                 new Location( 1L, "Denver", "West",new Point(1L,5123.23,-7342.52 )),
                 new Location( 2L, "Chicago", "Midwest",new Point(2L,-7023.10, 8211.09 )),
@@ -75,7 +75,7 @@ public class Application {
                 new Location( 5L, "Atlanta", "South",new Point(5L,1711.02, -7002.79 ))
                 )
         ); // End locations
-       */
+
     }
 }
 
@@ -85,4 +85,5 @@ public class Application {
    http://localhost:8080/devices/list
    http://localhost:8080/ranks/grades
    http://localhost:8080/ranks/statuses
+
 */
