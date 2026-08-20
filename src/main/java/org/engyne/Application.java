@@ -5,7 +5,6 @@ import io.micronaut.runtime.Micronaut;
 import io.micronaut.runtime.event.annotation.EventListener;
 import io.micronaut.transaction.annotation.Transactional;
 import jakarta.inject.Singleton;
-
 import java.util.List;
 
 
@@ -14,12 +13,15 @@ public class Application {
 
     private final DeviceRepository deviceRepository;
     private final RankRepository rankRepository;
+    private final PointRepository pointRepository;
+    private final LocationRepository locationRepository;
 
-    public Application(DeviceRepository deviceRepository, RankRepository rankRepository) {
+    public Application(DeviceRepository deviceRepository, RankRepository rankRepository,PointRepository pointRepository,LocationRepository locationRepository) {
         this.deviceRepository = deviceRepository;
         this.rankRepository = rankRepository;
+        this.pointRepository = pointRepository;
+        this.locationRepository = locationRepository;
     }
-
 
 
     public static void main(String[] args) {
@@ -47,16 +49,34 @@ public class Application {
            )
         ); // End devices
 
-
         rankRepository.saveAll(List.of(
                         new Rank(null, 3, Rank.Status.READY, "To be deployed in lab-1 soon"),
                         new Rank(null, 2, Rank.Status.PHASEOUT, "Has been sold to client"),
                         new Rank(null, 4, Rank.Status.STOPPED, "Under going maintenance")
                 )
-        ); // ranks
+        ); // End ranks
 
+
+        pointRepository.saveAll(List.of(
+                new Point(1L, 5123.23, -7342.52),
+                new Point(2L, -7023.10, 8211.09),
+                new Point(3L, -2371.42, -7002.12),
+                new Point(4L, 4404.67, 9881.03),
+                new Point(5L, 1711.02, -7002.79)
+                )
+        ); // End points
+
+        /*
+        locationRepository.saveAll(List.of(
+                new Location( 1L, "Denver", "West",new Point(1L,5123.23,-7342.52 )),
+                new Location( 2L, "Chicago", "Midwest",new Point(2L,-7023.10, 8211.09 )),
+                new Location( 3L, "Oakland", "West",new Point( 3L,-2371.42, -6002.12 )),
+                new Location( 4L, "Boston", "East",new Point(4L,4404.67, 9881.03 )),
+                new Location( 5L, "Atlanta", "South",new Point(5L,1711.02, -7002.79 ))
+                )
+        ); // End locations
+       */
     }
-
 }
 
 /* Endpoint testing:
