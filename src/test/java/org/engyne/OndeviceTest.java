@@ -55,6 +55,12 @@ class OndeviceTest {
         Assertions.assertEquals( 10, models.size());
     }
 
+    @Test // use interface hereunder
+    void testRankGradeEndPoint(RankClient rankClient) {
+        List<String> grades = rankClient.getGrade();
+        Assertions.assertEquals( 3, grades.size());
+    }
+
 
     @Test // use interface hereunder
     void testPointXEndPoint(PointClient pointClient) {
@@ -94,6 +100,17 @@ class OndeviceTest {
         @Get("/models")
         List<String> getModel();
     }
+
+    @Retryable
+    @Client("/ranks")
+    interface RankClient {
+
+        @Get("/grades")
+        List<String> getGrade();
+
+    }
+
+
 
     @Retryable
     @Client("/points")
