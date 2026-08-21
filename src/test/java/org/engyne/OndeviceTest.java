@@ -26,6 +26,11 @@ class OndeviceTest {
     }
 
     @Test
+    void testRankData( RankRepository rankRepository) {
+        Assertions.assertEquals( 3, rankRepository.count());
+    }
+
+    @Test
     void testPointeData( PointRepository pointRepository) {
         Assertions.assertEquals( 5, pointRepository.count());
     }
