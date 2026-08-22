@@ -36,5 +36,29 @@ public class PointController {
         return resultStr;
     }
 
+    @Get("/distances")
+    List<String> getDistances(){
+
+        List<String> distancesStr = new ArrayList<>();
+        List<Double> results = new ArrayList<>();
+        List<Double> xList = this.pointRepository.findX(); // findX() method is to be created in pointRepository
+        List<Double> yList = this.pointRepository.findY(); // findY() method is to be created in pointRepository
+
+        for (int i = 0; i < xList.size(); i++) {
+            double dx = xList.get(i);
+            double dy = yList.get(i);
+            double result = Math.sqrt(dx * dx + dy * dy);
+            results.add(result);
+        }
+
+        for ( Double number: results) {
+            distancesStr.add(String.valueOf(number));
+        }
+        return distancesStr;
+    }
+
+
+
+
 }
 
