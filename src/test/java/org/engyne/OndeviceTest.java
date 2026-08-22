@@ -1,6 +1,5 @@
 package org.engyne;
 
-
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.client.annotation.Client;
 import io.micronaut.retry.annotation.Retryable;
@@ -8,9 +7,7 @@ import io.micronaut.runtime.EmbeddedApplication;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
-
 import jakarta.inject.Inject;
-
 import java.util.List;
 
 @MicronautTest
@@ -38,7 +35,6 @@ class OndeviceTest {
     void testLocationData( LocationRepository locationRepository) {
         Assertions.assertEquals( 5, locationRepository.count());
     }
-
 
 
     // B. EndPoints testing(client-side):
@@ -109,8 +105,6 @@ class OndeviceTest {
         List<String> getGrade();
 
     }
-
-
 
     @Retryable
     @Client("/points")
