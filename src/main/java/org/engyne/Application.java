@@ -23,7 +23,6 @@ public class Application {
         this.locationRepository = locationRepository;
     }
 
-
     public static void main(String[] args) {
         Micronaut.run(Application.class, args);
     }
