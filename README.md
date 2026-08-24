@@ -50,6 +50,7 @@ http://localhost:8080/ranks/statuses
 
 http://localhost:8080/points/xs
 http://localhost:8080/points/ys
+http://localhost:8080/points/distances
 
 http://localhost:8080/locales/cities
 http://localhost:8080/locales/markets
