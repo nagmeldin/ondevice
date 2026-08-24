@@ -5,6 +5,7 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Controller("/points")
@@ -57,8 +58,23 @@ public class PointController {
         return distancesStr;
     }
 
+    @Get("/closest")
+    String getClosestDistance(){
 
+        List<Double> results = new ArrayList<>();
+        List<Double> xList = this.pointRepository.findX(); // findX() method is to be created in pointRepository
+        List<Double> yList = this.pointRepository.findY(); // findY() method is to be created in pointRepository
 
+        for (int i = 0; i < xList.size(); i++) {
+            double dx = xList.get(i);
+            double dy = yList.get(i);
+            double result = Math.sqrt(dx * dx + dy * dy);
+            results.add(result);
+        }
+        double closest = Collections.min(results);
+
+        return String.valueOf(closest);
+    }
 
 }
 
