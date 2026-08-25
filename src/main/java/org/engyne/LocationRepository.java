@@ -13,5 +13,5 @@ public interface LocationRepository extends CrudRepository<@Valid Location, @Pos
 
     List<String> findCity(); // User method to be used in Location Controller
     List<String> findMarket(); // User method to be used in Location Controller
-//    List<Point> findPoint(); // User method to be used in Location Controller
+    List<Point> findPoint(); // User method to be used in Location Controller
 }

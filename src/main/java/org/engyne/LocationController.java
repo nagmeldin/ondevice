@@ -28,4 +28,20 @@ public class LocationController {
         return this.locationRepository.findMarket(); // findMarket() method is to be created in locationRepository
     }
 
+    @Get("/points")
+    List<String> listPoints(){
+
+        List<String> resultStr = new ArrayList<>();
+        List<Point> points = new ArrayList<>();
+
+        points = this.locationRepository.findPoint(); // findMarket() method is to be created in locationRepository
+
+        for (Point point : points) {
+            double x = point.x();
+            double y = point.y();
+            resultStr.add( String.valueOf(x) + "," + String.valueOf(y) );
+        }
+        return resultStr;
+    }
+
 }
