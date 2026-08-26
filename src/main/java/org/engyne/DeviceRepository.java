@@ -13,6 +13,7 @@ import java.util.List;
 public interface DeviceRepository extends CrudRepository<@Valid Device, @Positive Long> {
 
     List<String> findMake(); // User method to be used in Device Controller
+    List<String> findModel(); // User method to be used in Device Controller
 
     List<Device> findByHealthCheckGreaterThan(int healthCheck);
 

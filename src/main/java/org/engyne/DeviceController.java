@@ -9,6 +9,9 @@ import java.util.List;
 @Controller("/devices")
 public class DeviceController {
 
+
+
+
     final DeviceRepository deviceRepository;
 
     public DeviceController(DeviceRepository deviceRepository) {
@@ -16,19 +19,25 @@ public class DeviceController {
     }
 
 //EndPoints design:
-@Get("/makes")
-List<String> listMake(){
-    return this.deviceRepository.findMake(); // findMake() method is to be created in deviceRepository
-   }
 
-   @Get("/list")
-    List<DeviceDTO> list(){
+@Get("/")
+public String index() {
+        return "Device Inventory Homepage"; // 4
+    }
+
+@Get("/makes")
+List<String> listMake() {
+    return this.deviceRepository.findMake(); // findMake() method is to be created in deviceRepository
+}
+
+@Get("/models")
+List<String> listModel() {
+        return this.deviceRepository.findModel(); // findModel() method is to be created in deviceRepository
+    }
+
+@Get("/list")
+List<DeviceDTO> list() {
         return this.deviceRepository.list(); // returns only make and year
     }
 }
 
-/* Endpoint testing:
-   http://localhost:8080/devices/makes
-   $ curl http://localhost:8080/devices/makes
-   http://localhost:8080/devices/list
-*/

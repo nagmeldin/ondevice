@@ -10,6 +10,7 @@ import java.util.List;
 @Controller("/locales")
 public class LocationController {
 
+
     final LocationRepository locationRepository;
 
     public LocationController(LocationRepository locationRepository) {
@@ -17,6 +18,10 @@ public class LocationController {
     }
 
     //EndPoints design:
+    @Get("/")
+    public String index() {
+        return "Device Inventory Locations"; // 4
+    }
 
     @Get("/cities")
     List<String> listCities(){
@@ -26,6 +31,22 @@ public class LocationController {
     @Get("/markets")
     List<String> listMarkets(){
         return this.locationRepository.findMarket(); // findMarket() method is to be created in locationRepository
+    }
+
+    @Get("/points")
+    List<String> listPoints(){
+
+        List<String> resultStr = new ArrayList<>();
+        List<Point> points = new ArrayList<>();
+
+        points = this.locationRepository.findPoint(); // findMarket() method is to be created in locationRepository
+
+        for (Point point : points) {
+            double x = point.x();
+            double y = point.y();
+            resultStr.add( "(" + String.valueOf(x) + "," + String.valueOf(y) + ")" );
+        }
+        return resultStr;
     }
 
 }

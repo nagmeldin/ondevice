@@ -40,10 +40,10 @@ public class Application {
                 new Device(null, "arista", "7280R4", "EOS", 2017, 9),
                 new Device(null, "arista", "7280R3", "EOS", 2021, 6),
 
-                new Device(null, "d-link", "R36", "Linux", 2016, 1),
-                new Device(null, "d-link", "M36", "Linux", 2014, 6),
+                new Device(null, "d-link", "R360", "Linux", 2016, 1),
+                new Device(null, "d-link", "M370", "Linux", 2014, 6),
 
-                new Device(null, "F5", "r2600", "F5OS", 2011, 7),
+                new Device(null, "F5", "r2700", "F5OS", 2011, 7),
                 new Device(null, "F5", "r5800", "F5OS", 2018, 3)
            )
         ); // End devices
