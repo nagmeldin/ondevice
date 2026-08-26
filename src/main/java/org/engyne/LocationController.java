@@ -39,7 +39,7 @@ public class LocationController {
         for (Point point : points) {
             double x = point.x();
             double y = point.y();
-            resultStr.add( String.valueOf(x) + "," + String.valueOf(y) );
+            resultStr.add( "(" + String.valueOf(x) + "," + String.valueOf(y) + ")" );
         }
         return resultStr;
     }

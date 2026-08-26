@@ -83,6 +83,13 @@ class OndeviceTest {
         Assertions.assertEquals( 5, markets.size());
     }
 
+    /*
+    @Test // use interface hereunder
+    void testLocationPointEndPoint(LocationClient locationClient) {
+        List<Point> points = locationClient.getPoint();
+        Assertions.assertEquals( 5,points.size()  );
+    }*/
+
     /* ------------*** Interfaces *******--------------------- */
 
 
@@ -126,6 +133,10 @@ class OndeviceTest {
 
         @Get("/markets")
         List<String> getMarket();
+
+
+        @Get("/points")
+        List<Point> getPoint();
     }
 
 }
