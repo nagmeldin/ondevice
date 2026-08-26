@@ -10,6 +10,9 @@ import java.util.List;
 
 @Controller("/points")
 public class PointController {
+
+
+
     final PointRepository pointRepository;
 
     public PointController(PointRepository pointRepository) {
@@ -17,6 +20,11 @@ public class PointController {
     }
 
     //EndPoints design:
+
+    @Get("/")
+    public String index() {
+        return "Device Inventory focal points"; // 4
+    }
 
     @Get("/xs")
     List<String> listX(){

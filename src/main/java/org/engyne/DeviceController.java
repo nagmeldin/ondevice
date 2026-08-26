@@ -9,6 +9,9 @@ import java.util.List;
 @Controller("/devices")
 public class DeviceController {
 
+
+
+
     final DeviceRepository deviceRepository;
 
     public DeviceController(DeviceRepository deviceRepository) {
@@ -16,6 +19,12 @@ public class DeviceController {
     }
 
 //EndPoints design:
+
+@Get("/")
+public String index() {
+        return "Device Inventory Homepage"; // 4
+    }
+
 @Get("/makes")
 List<String> listMake() {
     return this.deviceRepository.findMake(); // findMake() method is to be created in deviceRepository

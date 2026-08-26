@@ -10,6 +10,7 @@ import java.util.List;
 @Controller("/locales")
 public class LocationController {
 
+
     final LocationRepository locationRepository;
 
     public LocationController(LocationRepository locationRepository) {
@@ -17,6 +18,10 @@ public class LocationController {
     }
 
     //EndPoints design:
+    @Get("/")
+    public String index() {
+        return "Device Inventory Locations"; // 4
+    }
 
     @Get("/cities")
     List<String> listCities(){

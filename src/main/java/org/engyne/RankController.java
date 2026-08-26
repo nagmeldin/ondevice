@@ -9,13 +9,23 @@ import java.util.List;
 @Controller("/ranks")
 public class RankController {
 
+
     final RankRepository rankRepository;
 
     public RankController(RankRepository rankRepository) {
         this.rankRepository = rankRepository;
     }
 
+
+
+
     //EndPoints design:
+
+    @Get("/")
+    public String index() {
+        return "Device Inventory ranks"; // 4
+    }
+
     @Get("/grades")
     List<String> listGrades(){                        // findGrades() method is to be created in rankRepository
         List<Integer> results = new ArrayList<>();

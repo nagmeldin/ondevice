@@ -40,6 +40,8 @@
 
 
 ## Endpoint testing:
+http://localhost:8080/devices/
+http://localhost:8080/ranks/
 http://localhost:8080/devices/makes
    $ curl http://localhost:8080/devices/makes
 http://localhost:8080/devices/models
@@ -47,12 +49,15 @@ http://localhost:8080/devices/list
 http://localhost:8080/ranks/grades
 http://localhost:8080/ranks/statuses
 
+http://localhost:8080/points/
 http://localhost:8080/points/xs
 http://localhost:8080/points/ys
 http://localhost:8080/points/distances
 http://localhost:8080/points/closest
 
+http://localhost:8080/locales/
 http://localhost:8080/locales/cities
 http://localhost:8080/locales/markets
 http://localhost:8080/locales/points
+
 
