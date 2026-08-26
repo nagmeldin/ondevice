@@ -7,11 +7,12 @@ on:
     branches: [ "main" ]
 
 permissions:
-  contents: chmod +x gradlew 
+  contents: read
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v4
     
@@ -20,15 +21,9 @@ jobs:
       with:
         java-version: '25'
         distribution: 'temurin'
-
-    # Setup Gradle for caching and dependency tracking
+        
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
-
-    # Run build using the Gradle wrapper
+      
     - name: Build with Gradle
       run: ./gradlew build
-
-    # Optional: Run tests explicitly if not covered by build
-    - name: Test with Gradle
-      run: ./gradlew test
