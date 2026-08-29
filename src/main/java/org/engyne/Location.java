@@ -1,6 +1,5 @@
 package org.engyne;
 
-
 import io.micronaut.data.annotation.Id;
 import io.micronaut.data.annotation.MappedEntity;
 import io.micronaut.data.annotation.Relation;
@@ -20,5 +19,3 @@ public record Location(
         // @Relation(Relation.Kind.ONE_TO_MANY) List<Point> point
         Point point
 ) { }
-
-

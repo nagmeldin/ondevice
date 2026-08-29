@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+<!-- 1. Create the parent table -->
+    <changeSet id="create-location-table" author="neldin">
+        <createTable tableName="location">
+            <column name="id" type="INT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="city" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="market" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- 2. Create the child table for the nested object (e.g., point) -->
+    <changeSet id="create-point-table" author="neldin">
+        <createTable tableName="point">
+            <column name="id" type="INT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <!-- Foreign key linking back to the parent -->
+<!--            <column name="id" type="INT">-->
+<!--                <constraints nullable="false" foreignKeyName="id" referencedTableName="location" referencedColumnNames="id"/>-->
+<!--            </column>-->
+            <column name="x" type="DOUBLE"/>
+            <column name="y" type="DOUBLE"/>
+        </createTable>
+    </changeSet>
+
+    <!-- 3. Insert data into both tables -->
+    <changeSet id="insert-location-with-point" author="neldin">
+        <insert tableName="location">
+            <column name="id" valueNumeric="01"/>
+            <column name="city" value="chicago"/>
+            <column name="market" value="Midwest"/>
+        </insert>
+        <insert tableName="point">
+            <column name="id" valueNumeric="01"/>
+            <column name="x" valueNumeric="-7023.10"/>
+            <column name="y" valueNumeric="8211.09"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

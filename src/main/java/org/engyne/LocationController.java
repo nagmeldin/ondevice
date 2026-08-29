@@ -1,9 +1,7 @@
 package org.engyne;
 
-
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
-
 import java.util.ArrayList;
 import java.util.List;
 

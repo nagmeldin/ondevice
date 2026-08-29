@@ -1,16 +1,13 @@
 package org.engyne;
 
-import io.micronaut.context.event.StartupEvent;
+import org.slf4j.bridge.SLF4JBridgeHandler;
 import io.micronaut.runtime.Micronaut;
-import io.micronaut.runtime.event.annotation.EventListener;
-import io.micronaut.transaction.annotation.Transactional;
 import jakarta.inject.Singleton;
-import java.util.List;
-
 
 @Singleton
 public class Application {
 
+    /*
     private final DeviceRepository deviceRepository;
     private final RankRepository rankRepository;
     private final PointRepository pointRepository;
@@ -21,12 +18,15 @@ public class Application {
         this.rankRepository = rankRepository;
         this.pointRepository = pointRepository;
         this.locationRepository = locationRepository;
-    }
+    } */
 
     public static void main(String[] args) {
+        SLF4JBridgeHandler.removeHandlersForRootLogger();
+        SLF4JBridgeHandler.install();
         Micronaut.run(Application.class, args);
     }
 
+    /*
     @EventListener
     @Transactional
     void startup(StartupEvent startupEvent) {
@@ -65,7 +65,6 @@ public class Application {
                 )
         ); // End points
 
-
         locationRepository.saveAll(List.of(
                 new Location( 1L, "Denver", "West",new Point(1L,5123.23,-7342.52 )),
                 new Location( 2L, "Chicago", "Midwest",new Point(2L,-7023.10, 8211.09 )),
@@ -75,20 +74,8 @@ public class Application {
                 )
         ); // End locations
 
-    }
+     */
+
+
 }
 
-/* Endpoint testing:
-   http://localhost:8080/devices/makes
-   $ curl http://localhost:8080/devices/makes
-   http://localhost:8080/devices/list
-   http://localhost:8080/ranks/grades
-   http://localhost:8080/ranks/statuses
-
-   http://localhost:8080/points/xs
-   http://localhost:8080/points/ys
-
-   http://localhost:8080/locales/cities
-   http://localhost:8080/locales/markets
-
-*/

@@ -1,6 +1,5 @@
 package org.engyne;
 
-
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 
@@ -8,8 +7,6 @@ import java.util.List;
 
 @Controller("/devices")
 public class DeviceController {
-
-
 
 
     final DeviceRepository deviceRepository;
@@ -20,24 +17,20 @@ public class DeviceController {
 
 //EndPoints design:
 
-@Get("/")
-public String index() {
+    @Get("/")
+    public String index() {
         return "Device Inventory Homepage"; // 4
     }
 
-@Get("/makes")
-List<String> listMake() {
-    return this.deviceRepository.findMake(); // findMake() method is to be created in deviceRepository
-}
+    @Get("/makes")
+    List<String> listMake() {
+        return this.deviceRepository.findMake(); // findMake() method is to be created in deviceRepository
+    }
 
-@Get("/models")
-List<String> listModel() {
+    @Get("/models")
+    List<String> listModel() {
         return this.deviceRepository.findModel(); // findModel() method is to be created in deviceRepository
     }
 
-@Get("/list")
-List<DeviceDTO> list() {
-        return this.deviceRepository.list(); // returns only make and year
-    }
-}
 
+}

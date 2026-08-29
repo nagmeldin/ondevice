@@ -1,17 +1,15 @@
 package org.engyne;
 
-
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 @Controller("/points")
 public class PointController {
-
-
 
     final PointRepository pointRepository;
 
@@ -85,4 +83,3 @@ public class PointController {
     }
 
 }
-

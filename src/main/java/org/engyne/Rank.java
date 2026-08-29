@@ -20,16 +20,16 @@ public record Rank(
 
         @Size(max = 255)
         String note
-     ) {
+) {
 
-        public enum Status {
-                READY,
-                RUNNING,
-                STOPPED,
-                PHASEOUT
-                }
+    public enum Status {
+        READY,
+        RUNNING,
+        STOPPED,
+        PHASEOUT
+    }
 
-        public Rank(int grade, Status status, String note) {
-                this( null, grade,  status, note);
-        }
+    public Rank(int grade, Status status, String note) {
+        this( null, grade,  status, note);
+    }
 }
