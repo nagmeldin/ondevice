@@ -7,7 +7,7 @@ import jakarta.inject.Singleton;
 @Singleton
 public class Application {
 
-    /*
+    /* Absent Postgres DB, below are H2 DB repos:
     private final DeviceRepository deviceRepository;
     private final RankRepository rankRepository;
     private final PointRepository pointRepository;
