@@ -18,7 +18,7 @@ public class DeviceJob {
     }
 
 
-    @Scheduled( fixedRate = "25s", condition = "#{!this.configuration.isPaused }") // Only when job NOT paused
+    @Scheduled( fixedRate = "59s", condition = "#{!this.configuration.isPaused }") // Only when job NOT paused
     void reportUnhealthy() {
         System.out.println("Device is unhealthy");
 

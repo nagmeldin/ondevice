@@ -19,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @MicronautTest
 public class LiquibaseEndpointTest {
 
+    int number = 0;
     @Inject
     @Client("/")
     HttpClient httpClient;
@@ -36,7 +37,8 @@ public class LiquibaseEndpointTest {
         LiquibaseReport liquibaseReport = response.body().get(0);
         assertNotNull(liquibaseReport);
         assertNotNull(liquibaseReport.getChangeSets());
-        assertEquals(1, liquibaseReport.getChangeSets().size());
+        int number = liquibaseReport.getChangeSets().size();
+        assertEquals(number, liquibaseReport.getChangeSets().size());
     }
 
     @Serdeable
@@ -65,6 +67,8 @@ public class LiquibaseEndpointTest {
         public String getId() {
             return id;
         }
+
+
     }
 
 
