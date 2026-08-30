@@ -16,6 +16,6 @@ public interface DeviceRepository extends CrudRepository< Device, Long> {
 
     List<Device> findByHealthCheckGreaterThan(int healthCheck);
 
-    //List<DeviceDTO> list();  // For DTO class
+    List<DeviceDTO> list();  // For DTO class
 
 }

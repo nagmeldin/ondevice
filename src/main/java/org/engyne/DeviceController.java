@@ -33,4 +33,10 @@ public class DeviceController {
     }
 
 
+    @Get("/list")
+    List<DeviceDTO> list() {
+        return this.deviceRepository.list(); // returns only make and year
+    }
+
+
 }

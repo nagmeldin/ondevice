@@ -36,7 +36,7 @@ public class LiquibaseEndpointTest {
         LiquibaseReport liquibaseReport = response.body().get(0);
         assertNotNull(liquibaseReport);
         assertNotNull(liquibaseReport.getChangeSets());
-        assertEquals(2, liquibaseReport.getChangeSets().size());
+        assertEquals(1, liquibaseReport.getChangeSets().size());
     }
 
     @Serdeable

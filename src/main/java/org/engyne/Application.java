@@ -26,7 +26,7 @@ public class Application {
         Micronaut.run(Application.class, args);
     }
 
-    /*
+    /* Absent Postgres DB, below are H2 DB test data set:
     @EventListener
     @Transactional
     void startup(StartupEvent startupEvent) {
