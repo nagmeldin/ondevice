@@ -19,21 +19,21 @@ class OndeviceTest {
     // A. Database testing(Server-side):
     @Test
     void testDeviceData( DeviceRepository deviceRepository) {
-        Assertions.assertEquals( 1, deviceRepository.count());
+        Assertions.assertEquals( 2, deviceRepository.count());
     }
 
     @Test
     void testRankData( RankRepository rankRepository) {
-        Assertions.assertEquals( 1, rankRepository.count());
+        Assertions.assertEquals( 2, rankRepository.count());
     }
 
     @Test
     void testPointeData( PointRepository pointRepository) {
-        Assertions.assertEquals( 1, pointRepository.count());
+        Assertions.assertEquals( 2, pointRepository.count());
     }
     @Test
     void testLocationData( LocationRepository locationRepository) {
-        Assertions.assertEquals( 1, locationRepository.count());
+        Assertions.assertEquals( 2, locationRepository.count());
     }
 
 
@@ -42,45 +42,45 @@ class OndeviceTest {
     @Test // use interface hereunder
     void testDeviceMakeEndPoint(DeviceClient deviceClient) {
         List<String> makes = deviceClient.getMake();
-        Assertions.assertEquals( 1, makes.size());
+        Assertions.assertEquals( 2, makes.size());
     }
 
     @Test // use interface hereunder
     void testDeviceModelEndPoint(DeviceClient deviceClient) {
         List<String> models = deviceClient.getModel();
-        Assertions.assertEquals( 1, models.size());
+        Assertions.assertEquals( 2, models.size());
     }
 
     @Test // use interface hereunder
     void testRankGradeEndPoint(RankClient rankClient) {
         List<String> grades = rankClient.getGrade();
-        Assertions.assertEquals( 1, grades.size());
+        Assertions.assertEquals( 2, grades.size());
     }
 
 
     @Test // use interface hereunder
     void testPointXEndPoint(PointClient pointClient) {
         List<String> xs = pointClient.getX();
-        Assertions.assertEquals( 1, xs.size());
+        Assertions.assertEquals( 2, xs.size());
     }
 
     @Test // use interface hereunder
     void testPointYEndPoint(PointClient pointClient) {
         List<String> ys = pointClient.getY();
-        Assertions.assertEquals( 1, ys.size());
+        Assertions.assertEquals( 2, ys.size());
     }
 
 
     @Test // use interface hereunder
     void testLocationCityEndPoint(LocationClient locationClient) {
         List<String> cities = locationClient.getCity();
-        Assertions.assertEquals( 1, cities.size());
+        Assertions.assertEquals( 2, cities.size());
     }
 
     @Test // use interface hereunder
     void testLocationMarketEndPoint(LocationClient locationClient) {
         List<String> markets = locationClient.getMarket();
-        Assertions.assertEquals( 1, markets.size());
+        Assertions.assertEquals( 2, markets.size());
     }
 
     /*

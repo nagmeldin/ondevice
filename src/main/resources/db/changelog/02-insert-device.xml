@@ -5,7 +5,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-    <changeSet id="02" author="eldin">
+    <changeSet id="insert-devices" author="neldin">
         <insert tableName="device">
             <column name="id"> 01 </column>
             <column name="make">cisco</column>
@@ -14,5 +14,14 @@
             <column name="os"> iOS</column>
             <column name="healthCheck"> 5 </column>
         </insert>
+        <insert tableName="device">
+            <column name="id"> 02 </column>
+            <column name="make">juniper</column>
+            <column name="model">MX5</column>
+            <column name="year"> 2016</column>
+            <column name="os"> junos</column>
+            <column name="healthCheck"> 4 </column>
+        </insert>
+
     </changeSet>
 </databaseChangeLog>

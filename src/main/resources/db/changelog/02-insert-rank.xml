@@ -5,12 +5,18 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-    <changeSet id="02" author="neldin">
+    <changeSet id="insert-ranks" author="neldin">
         <insert tableName="rank">
             <column name="id">01</column>
             <column name="grade">4</column>
             <column name="status">RUNNING</column>
             <column name="note"> This is a good device.</column>
+        </insert>
+        <insert tableName="rank">
+            <column name="id">02</column>
+            <column name="grade">7</column>
+            <column name="status">READY</column>
+            <column name="note"> This device is ready to go.</column>
         </insert>
     </changeSet>
 </databaseChangeLog>

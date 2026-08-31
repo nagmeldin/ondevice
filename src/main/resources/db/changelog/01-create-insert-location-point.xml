@@ -40,14 +40,28 @@
     <changeSet id="insert-location-with-point" author="neldin">
         <insert tableName="location">
             <column name="id" valueNumeric="01"/>
-            <column name="city" value="chicago"/>
+            <column name="city" value="Chicago"/>
             <column name="market" value="Midwest"/>
         </insert>
+        <insert tableName="location">
+            <column name="id" valueNumeric="02"/>
+            <column name="city" value="Denver"/>
+            <column name="market" value="West"/>
+        </insert>
+
+
         <insert tableName="point">
             <column name="id" valueNumeric="01"/>
             <column name="x" valueNumeric="-7023.10"/>
             <column name="y" valueNumeric="8211.09"/>
         </insert>
+        <insert tableName="point">
+            <column name="id" valueNumeric="02"/>
+            <column name="x" valueNumeric="-2371.42"/>
+            <column name="y" valueNumeric="-7002.12"/>
+        </insert>
+
+
     </changeSet>
 
 </databaseChangeLog>
