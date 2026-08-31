@@ -5,7 +5,7 @@ import io.micronaut.data.annotation.MappedEntity;
 import io.micronaut.data.annotation.Relation;
 import io.micronaut.serde.annotation.Serdeable;
 
-//@Serdeable.Deserializable
+@Serdeable
 @MappedEntity
 public record Location(
 

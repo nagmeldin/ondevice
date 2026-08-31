@@ -6,7 +6,7 @@ import io.micronaut.serde.annotation.Serdeable;
 
 import java.math.BigDecimal;
 
-//@Serdeable.Deserializable
+@Serdeable
 @MappedEntity
 public record Point(
         @Id

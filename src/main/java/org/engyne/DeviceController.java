@@ -1,7 +1,9 @@
 package org.engyne;
 
-import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Get;
+import io.micronaut.http.HttpResponse;
+import io.micronaut.http.HttpStatus;
+import io.micronaut.http.annotation.*;
+import jakarta.validation.Valid;
 
 import java.util.List;
 
@@ -37,6 +39,35 @@ public class DeviceController {
     List<DeviceDTO> list() {
         return this.deviceRepository.list(); // returns only make and year
     }
+
+    @Post("/")
+    public HttpResponse<?> saveDevice(@Body @Valid Device device) {
+
+        this.deviceRepository.save(device);
+        return HttpResponse.status(HttpStatus.CREATED).body(device);
+    }
+
+    /*
+    @Put("/{id}")
+    Device update(Long id, @Body Device updatedBook) {
+        Long index = devices.findIndexOf { it.id == id }
+        if (index != -1) {
+            devices[index].make = updatedDevice.make
+            devices[index].author = updatedDevice.make
+            return devices[index]
+        }
+        null
+
+     @Put("/")
+    public HttpResponse<?> updateDevice(@Body @Valid Device device) {
+    } */
+
+   /*
+    @Delete("/{id}")
+    void delete(Long id) {
+        devices.removeIf { it.id == id }
+    }
+   } */
 
 
 }
