@@ -41,63 +41,10 @@ public class DeviceController {
         return this.deviceRepository.findModel(); // findModel() method is to be created in deviceRepository
     }
 
-
     @Get("/list")
     List<DeviceDTO> list() {
         return this.deviceRepository.list(); // returns only make and year
     }
-
-
-   /*
-    @Post("/")
-    public HttpResponse<?> saveDevice(@Body @Valid Device device) {
-
-        this.deviceRepository.save(device);
-        return HttpResponse.status(HttpStatus.CREATED).body(device);
-    }
-
-    @Post("/")
-    public HttpResponse<Device> saveDevice(@Body @NotBlank Device device) {
-        this.deviceRepository.save(device);
-        return HttpResponse.created(device);
-    }
-    */
-
-
-
-
-
-/*
-    @Put("/{id}")
-    Device update(Long id, @Body Device device) {
-        Long index = device.findIndexOf {
-            it.id == id
-        }
-        if (index != -1) {
-            devices[index].make = updatedDevice.make
-            devices[index].author = updatedDevice.make
-            return devices[index]
-        }
-        null
-    }
-
-
-     @Put("/")
-    public HttpResponse<?> updateDevice(@Body @Valid Device device) {
-    }
-
-
-
-    @Post
-    HttpResponse<?> createDevice(@Body Device newDevice) {
-
-        Device device = this.deviceRepository.save(newDevice);
-        URI locationOfNewDevice = UriBuilder.of("/devices")
-                .path(device.id().toString())
-                .build();
-        return HttpResponse.created(locationOfNewDevice);
-    }
-   */
 
     @Post
     public Device createDevice(@Body Device device) {
@@ -111,6 +58,7 @@ public class DeviceController {
         URI location = UriBuilder.of("/devices").path(device.getId().toString()).build();
         return HttpResponse.created(device, location);
     }
+    // curl -X POST http://localhost:8080/devices  -H "Content-Type: application/json" -d '{ "id": 3, "make":"arsta", "model":"7280R3", "os": "eos" , "year": 2023, "healthCheck": 3 }'
 
     @Put("/{id}")
     public HttpResponse<Device> update(@PathVariable Long id, @Body Device updatedDevice) {
