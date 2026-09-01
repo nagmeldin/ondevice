@@ -1,6 +1,7 @@
 package org.engyne;
 
 
+import io.micronaut.core.annotation.Introspected;
 import io.micronaut.data.annotation.GeneratedValue;
 import io.micronaut.data.annotation.Id;
 import io.micronaut.data.annotation.MappedEntity;
@@ -9,6 +10,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+
 
 @Serdeable
 @MappedEntity
@@ -32,5 +34,15 @@ public record Device(
         @Max(10)
         int healthCheck
 ) {
+
+        public Long getId() { return id; }
+
+        public void setId(Long id) { id = id; }
+
+        public String getMake() { return make; }
+        public void setMake(String make) { make = make; }
+
+        public String getModel() { return model; }
+        public void setModel(String model) { model = model; }
 
 }

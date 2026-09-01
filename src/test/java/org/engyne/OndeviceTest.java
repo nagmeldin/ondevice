@@ -1,5 +1,8 @@
 package org.engyne;
 
+import io.micronaut.http.HttpRequest;
+import io.micronaut.http.HttpResponse;
+import io.micronaut.http.HttpStatus;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.client.annotation.Client;
 import io.micronaut.retry.annotation.Retryable;
@@ -51,6 +54,16 @@ class OndeviceTest {
         Assertions.assertEquals( 2, models.size());
     }
 
+    /*
+    @Test // use interface hereunder
+    void testDevicePOSTEndPoint(DeviceRepository deviceRepository) {
+        Device device = new Device(null, "arista", "7280R1", "EOS", 2013, 1);
+        deviceRepository.save(device);
+        Assertions.assertEquals( 3, deviceRepository.count());
+    } */
+
+
+
     @Test // use interface hereunder
     void testRankGradeEndPoint(RankClient rankClient) {
         List<String> grades = rankClient.getGrade();
@@ -82,6 +95,17 @@ class OndeviceTest {
         List<String> markets = locationClient.getMarket();
         Assertions.assertEquals( 2, markets.size());
     }
+
+    /*
+    @Test // use interface hereunder
+    void testDevicePostEndPoint(DeviceClient deviceClient) {
+        List<String> models = deviceClient.getModel();
+        Assertions.assertEquals( 2, models.size());
+        Device  device =  new Device(null, "arista", "7280R2", "EOS", 2013, 1);
+        HttpResponse<Void> createResponse = deviceClient.exchange(HttpRequest.POST("/devices", device), Void.class);
+        Assertions.assertEquals(createResponse.getStatus().getCode()).isEqualTo(HttpStatus.CREATED.getCode());
+    } */
+
 
     /*
     @Test // use interface hereunder
