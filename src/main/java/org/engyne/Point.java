@@ -14,4 +14,9 @@ public record Point(
         Double x,
         Double y
 ) {
+
+        // Getters() allowable-but not setters()
+        public Long getId() { return id; }
+        public Double getX() { return x; }
+        public Double getY() { return y; }
 }

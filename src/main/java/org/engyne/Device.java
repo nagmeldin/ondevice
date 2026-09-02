@@ -1,8 +1,5 @@
 package org.engyne;
 
-
-import io.micronaut.core.annotation.Introspected;
-import io.micronaut.data.annotation.GeneratedValue;
 import io.micronaut.data.annotation.Id;
 import io.micronaut.data.annotation.MappedEntity;
 import io.micronaut.serde.annotation.Serdeable;
@@ -11,9 +8,6 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import io.micronaut.data.model.naming.NamingStrategies; //Tackles camelback parsing
-
-
-
 
 //@MappedEntity(namingStrategy = NamingStrategies.Raw.class)
 @Serdeable
@@ -38,14 +32,14 @@ public record Device(
         @Max(10)
         int health
 ) {
-        // Kinda constructor setters():
+        // Kinda of constructor setters():
         public Device withMake(String make) {
                 return new Device(id, make, model, os, year, health);
         }
         public Device withModel(String model) {
                 return new Device(id, make, model, os, year, health);
         }
-        // Getters() allowable-but not setters()
+        // Getters() allowable-but not setters():
         public Long getId() { return id; }
         public String getMake() { return make; }
         public String getModel() { return model; }

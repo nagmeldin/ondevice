@@ -18,4 +18,10 @@ public record Location(
         @Relation(Relation.Kind.ONE_TO_ONE)
         // @Relation(Relation.Kind.ONE_TO_MANY) List<Point> point
         Point point
-) { }
+) {
+        // Getters() allowable-but not setters():
+        public Long getId() { return id; }
+        public String getCity() { return city; }
+        public String getMarket() { return market; }
+        public Point getPoint(){ return point; }
+}
