@@ -12,6 +12,7 @@ public class DeviceController {
 
 
     final DeviceRepository deviceRepository;
+    DeviceService  deviceService = new DeviceService();
 
     public DeviceController(DeviceRepository deviceRepository) {
         this.deviceRepository = deviceRepository;
@@ -55,7 +56,8 @@ public class DeviceController {
            Device deviceExiting = deviceRepository.findById(id).orElseThrow(() -> new RuntimeException("Device is not found"));
 
         // Updating make field of existing device with user's:
-           updatedDevice = deviceExiting.withMake(updatedDevice.getMake());
+             updatedDevice = deviceExiting.withMake(updatedDevice.getMake());
+             // updatedDevice = deviceExiting.withMake(deviceService.generateText());
         //  Or updating model field of existing device with user's:
            //updatedDevice = deviceExiting.withModel(updatedDevice.getModel());
 
