@@ -1,25 +1,20 @@
 package org.engyne;
-
-import io.micronaut.core.annotation.NonNull;
 import io.micronaut.data.jdbc.annotation.JdbcRepository;
 import io.micronaut.data.model.query.builder.sql.Dialect;
 import io.micronaut.data.repository.CrudRepository;
-import io.micronaut.http.HttpResponse;
-import io.micronaut.http.annotation.Body;
-import io.micronaut.http.HttpResponse;
-//import jakarta.validation.Valid;
-//import jakarta.validation.constraints.Positive;
 import java.util.List;
 
 @JdbcRepository(dialect = Dialect.POSTGRES)
 public interface DeviceRepository extends CrudRepository< Device, Long> {
 
-    List<String> findMake(); // User method to be used in Device Controller
-    List<String> findModel(); // User method to be used in Device Controller
+    // Inherits standard CRUD operations:
+        // 1) Device save(Device newDevice);
+        // 2) Device update(Device updatedDevice);
 
-    List<Device> findByHealthGreaterThan(int health);
+     List<String> findMake(); // User method to be used in Device Controller
+     List<String> findModel(); // User method to be used in Device Controller
+     List<Device> findByHealthGreaterThan(int health);
 
-    List<DeviceDTO> list();  // For DTO class
+     List<DeviceDTO> list();  // For DTO class
 
-   // HttpResponse<Device> addDevice(@Body Device device);
-}
+ }

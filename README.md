@@ -75,8 +75,6 @@ http://localhost:8080/ranks/
 
 http://localhost:8080/devices/makes
 
-$ curl http://localhost:8080/devices/makes
-
 http://localhost:8080/devices/models
 
 http://localhost:8080/devices/list
@@ -100,5 +98,15 @@ http://localhost:8080/locales/
 http://localhost:8080/locales/cities
 
 http://localhost:8080/locales/markets
+
+##  CRUD Operation:
+
+$ curl http://localhost:8080/devices/makes
+
+$ curl -X POST http://localhost:8080/devices/add  -H "Content-Type: application/json" -d '{ "id": 7, "make":"arsta", "model":"7280R3", "os": "eos" , "year": 2023, "health": 2 }'
+
+$ curl -X PUT "http://localhost:8080/devices/1/update"  -H "Content-Type: application/json" -d '{ "id": 1, "make":"CISCOx" }'
+
+$ curl -i -X DELETE http://localhost:8080/devices/1
 
 

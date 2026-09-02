@@ -1,16 +1,10 @@
 package org.engyne;
 
-import io.micronaut.http.HttpRequest;
+
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.HttpStatus;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.*;
-import io.micronaut.http.multipart.CompletedFileUpload;
-import io.micronaut.http.uri.UriBuilder;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
-
-import java.net.URI;
 import java.util.List;
 
 @Controller("/devices")
@@ -23,7 +17,7 @@ public class DeviceController {
         this.deviceRepository = deviceRepository;
     }
 
-//EndPoints design:
+//CRUD EndPoints design:
 
     @Get("/")
     @Produces(MediaType.APPLICATION_JSON)
@@ -46,7 +40,6 @@ public class DeviceController {
         return this.deviceRepository.list(); // returns only make and year
     }
 
-
     @Post("/add")
     @Status(HttpStatus.OK)
     public HttpResponse<Device> addDevice(@Body Device device) {
@@ -56,18 +49,24 @@ public class DeviceController {
     }
     // curl -X POST http://localhost:8080/devices/add  -H "Content-Type: application/json" -d '{ "id": 7, "make":"arsta", "model":"7280R3", "os": "eos" , "year": 2023, "health": 2 }'
 
-
-    @Put("/{id}")
+    @Put("/{id}/update")
     @Status(HttpStatus.OK)
-    public HttpResponse<Device> updateDevice(Long id,@Body Device updatedDevice) {
-       updatedDevice = this.deviceRepository.findById(id).orElse(null);;
-       if (updatedDevice != null) {
-           this.deviceRepository.update(updatedDevice);
-       }
+    public HttpResponse<Device> updateDevice(Long id, @Body Device updatedDevice) {
+           Device deviceExiting = deviceRepository.findById(id).orElseThrow(() -> new RuntimeException("Device is not found"));
 
-        return HttpResponse.status(HttpStatus.CREATED).body(updatedDevice);
+        // Updating make field of existing device with user's:
+           updatedDevice = deviceExiting.withMake(updatedDevice.getMake());
+        //  Or updating model field of existing device with user's:
+           //updatedDevice = deviceExiting.withModel(updatedDevice.getModel());
+
+        // Updating repo:
+            this.deviceRepository.update(updatedDevice);
+
+        return HttpResponse.ok(updatedDevice);
     }
-    // $ curl -X PUT "http://localhost:8080/devices/1"  -H "Content-Type: application/json" -d '{"make": "CISCO1"}'
+
+    // $ curl -X PUT "http://localhost:8080/devices/1/update"  -H "Content-Type: application/json" -d '{ "id": 1, "make":"CISCOx" }'
+
 
     @Delete("/{id}")
     @Status(HttpStatus.NO_CONTENT)

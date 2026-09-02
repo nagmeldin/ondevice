@@ -38,9 +38,19 @@ public record Device(
         @Max(10)
         int health
 ) {
-
+        // Kinda constructor setters():
+        public Device withMake(String make) {
+                return new Device(id, make, model, os, year, health);
+        }
+        public Device withModel(String model) {
+                return new Device(id, make, model, os, year, health);
+        }
+        // Getters() allowable-but not setters()
         public Long getId() { return id; }
-        public void setId(Long id) { id = id; }
-
+        public String getMake() { return make; }
+        public String getModel() { return model; }
+        public String getOs() { return os; }
+        public int getYear() { return year; }
+        public int getHealth() { return health; }
 
 }
