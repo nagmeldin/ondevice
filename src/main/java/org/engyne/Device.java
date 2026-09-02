@@ -19,7 +19,7 @@ import io.micronaut.data.model.naming.NamingStrategies; //Tackles camelback pars
 @Serdeable
 @MappedEntity("device")
 public record Device(
-        @GeneratedValue
+        //@GeneratedValue
         @Id
         Long id,
 
@@ -40,13 +40,7 @@ public record Device(
 ) {
 
         public Long getId() { return id; }
-
         public void setId(Long id) { id = id; }
 
-        public String getMake() { return make; }
-        public void setMake(String make) { make = make; }
-
-        public String getModel() { return model; }
-        public void setModel(String model) { model = model; }
 
 }

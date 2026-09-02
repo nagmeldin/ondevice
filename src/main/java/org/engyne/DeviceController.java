@@ -48,31 +48,26 @@ public class DeviceController {
 
 
     @Post("/add")
+    @Status(HttpStatus.OK)
     public HttpResponse<Device> addDevice(@Body Device device) {
 
         this.deviceRepository.save(device);
-        // URI location = UriBuilder.of("/devices").path(device.getId().toString()).build();
-        //return HttpResponse.created(device, location);
         return HttpResponse.status(HttpStatus.CREATED).body(device);
     }
     // curl -X POST http://localhost:8080/devices/add  -H "Content-Type: application/json" -d '{ "id": 7, "make":"arsta", "model":"7280R3", "os": "eos" , "year": 2023, "health": 2 }'
 
+
     @Put("/{id}")
-    public HttpResponse<Device> update(@PathVariable Long id, @Body Device updatedDevice) {
+    @Status(HttpStatus.OK)
+    public HttpResponse<Device> updateDevice(Long id,@Body Device updatedDevice) {
+       updatedDevice = this.deviceRepository.findById(id).orElse(null);;
+       if (updatedDevice != null) {
+           this.deviceRepository.update(updatedDevice);
+       }
 
-        Device device = deviceRepository.findById(id).orElse(null);
-
-        if (device == null) {
-            return HttpResponse.notFound();
-        }
-
-        device.setMake(updatedDevice.getMake());
-        device.setModel(updatedDevice.getModel());
-        deviceRepository.update(device);
-
-        return HttpResponse.ok(device);
+        return HttpResponse.status(HttpStatus.CREATED).body(updatedDevice);
     }
-    // $ curl -X PUT "http://localhost:8080/devices/1"  -H "Content-Type: application/json" -d '{"make": "CISCO"}'
+    // $ curl -X PUT "http://localhost:8080/devices/1"  -H "Content-Type: application/json" -d '{"make": "CISCO1"}'
 
     @Delete("/{id}")
     @Status(HttpStatus.NO_CONTENT)
