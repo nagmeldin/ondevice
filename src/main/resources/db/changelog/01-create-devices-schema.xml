@@ -6,7 +6,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="01" author="eldin">
+    <changeSet id="create-device" author="neldin">
 
         <createTable tableName="device" remarks="A table to contain all devices">
 
@@ -30,7 +30,7 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="healthCheck" type="INT">
+            <column name="health" type="INT">
                 <constraints nullable="false" />
             </column>
 

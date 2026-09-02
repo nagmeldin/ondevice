@@ -12,7 +12,7 @@
             <column name="model">X2000</column>
             <column name="year"> 2019</column>
             <column name="os"> iOS</column>
-            <column name="healthCheck"> 5 </column>
+            <column name="health"> 5 </column>
         </insert>
         <insert tableName="device">
             <column name="id"> 02 </column>
@@ -20,7 +20,7 @@
             <column name="model">MX5</column>
             <column name="year"> 2016</column>
             <column name="os"> junos</column>
-            <column name="healthCheck"> 4 </column>
+            <column name="health"> 4 </column>
         </insert>
 
     </changeSet>

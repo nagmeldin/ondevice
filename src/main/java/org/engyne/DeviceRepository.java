@@ -4,6 +4,9 @@ import io.micronaut.core.annotation.NonNull;
 import io.micronaut.data.jdbc.annotation.JdbcRepository;
 import io.micronaut.data.model.query.builder.sql.Dialect;
 import io.micronaut.data.repository.CrudRepository;
+import io.micronaut.http.HttpResponse;
+import io.micronaut.http.annotation.Body;
+import io.micronaut.http.HttpResponse;
 //import jakarta.validation.Valid;
 //import jakarta.validation.constraints.Positive;
 import java.util.List;
@@ -14,8 +17,9 @@ public interface DeviceRepository extends CrudRepository< Device, Long> {
     List<String> findMake(); // User method to be used in Device Controller
     List<String> findModel(); // User method to be used in Device Controller
 
-    List<Device> findByHealthCheckGreaterThan(int healthCheck);
+    List<Device> findByHealthGreaterThan(int health);
 
     List<DeviceDTO> list();  // For DTO class
 
+   // HttpResponse<Device> addDevice(@Body Device device);
 }

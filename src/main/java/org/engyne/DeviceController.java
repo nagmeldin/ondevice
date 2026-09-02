@@ -46,19 +46,16 @@ public class DeviceController {
         return this.deviceRepository.list(); // returns only make and year
     }
 
-    @Post
-    public Device createDevice(@Body Device device) {
-        this.deviceRepository.save(device);
-        return device;
-    }
 
-    @Post
+    @Post("/add")
     public HttpResponse<Device> addDevice(@Body Device device) {
+
         this.deviceRepository.save(device);
-        URI location = UriBuilder.of("/devices").path(device.getId().toString()).build();
-        return HttpResponse.created(device, location);
+        // URI location = UriBuilder.of("/devices").path(device.getId().toString()).build();
+        //return HttpResponse.created(device, location);
+        return HttpResponse.status(HttpStatus.CREATED).body(device);
     }
-    // curl -X POST http://localhost:8080/devices  -H "Content-Type: application/json" -d '{ "id": 3, "make":"arsta", "model":"7280R3", "os": "eos" , "year": 2023, "healthCheck": 3 }'
+    // curl -X POST http://localhost:8080/devices/add  -H "Content-Type: application/json" -d '{ "id": 7, "make":"arsta", "model":"7280R3", "os": "eos" , "year": 2023, "health": 2 }'
 
     @Put("/{id}")
     public HttpResponse<Device> update(@PathVariable Long id, @Body Device updatedDevice) {

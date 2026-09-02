@@ -10,10 +10,14 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+import io.micronaut.data.model.naming.NamingStrategies; //Tackles camelback parsing
 
 
+
+
+//@MappedEntity(namingStrategy = NamingStrategies.Raw.class)
 @Serdeable
-@MappedEntity
+@MappedEntity("device")
 public record Device(
         @GeneratedValue
         @Id
@@ -32,7 +36,7 @@ public record Device(
 
         @Min(1)
         @Max(10)
-        int healthCheck
+        int health
 ) {
 
         public Long getId() { return id; }
