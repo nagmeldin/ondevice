@@ -15,6 +15,10 @@ public record Point(
         Double y
 ) {
 
+        // Kinda of constructor setters():
+        public Point withXY(Double x, Double y) {
+                return new Point(id, x, y);
+        }
         // Getters() allowable-but not setters()
         public Long getId() { return id; }
         public Double getX() { return x; }

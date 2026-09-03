@@ -99,7 +99,7 @@ http://localhost:8080/locales/cities
 
 http://localhost:8080/locales/markets
 
-##  CRUD Operation:
+##  CRUD Operations:
 
 $ curl http://localhost:8080/devices/makes
 
@@ -108,5 +108,16 @@ $ curl -X POST http://localhost:8080/devices/add  -H "Content-Type: application/
 $ curl -X PUT http://localhost:8080/devices/1/update  -H "Content-Type: application/json" -d '{ "id": 1, "make":"CISCOx", "model":"XR250", "os": "iOS" , "year": 2021, "health": 3 }'
 
 $ curl -i -X DELETE http://localhost:8080/devices/1
+
+
+$ curl http://localhost:8080/points/xs
+
+$ curl http://localhost:8080/points/ys
+
+$ curl -X POST http://localhost:8080/points/add  -H "Content-Type: application/json" -d '{ "id": 3, "x":-2371.42, "y":-6002.12 }'
+
+$ curl -X PUT http://localhost:8080/points/1/update  -H "Content-Type: application/json" -d '{ "id": 1, "x":-2371.99, "y":-6002.99 }'
+
+$ curl -i -X DELETE http://localhost:8080/points/2
 
 
