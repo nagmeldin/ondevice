@@ -53,13 +53,18 @@ public class DeviceController {
     @Put("/{id}/update")
     @Status(HttpStatus.OK)
     public HttpResponse<Device> updateDevice(Long id, @Body Device updatedDevice) {
+
            Device deviceExiting = deviceRepository.findById(id).orElseThrow(() -> new RuntimeException("Device is not found"));
 
-        // Updating make field of existing device with user's:
-             updatedDevice = deviceExiting.withMake(updatedDevice.getMake());
-             // updatedDevice = deviceExiting.withMake(deviceService.generateText());
-        //  Or updating model field of existing device with user's:
-           //updatedDevice = deviceExiting.withModel(updatedDevice.getModel());
+        //1) Updating make field of existing device with user's:
+                 updatedDevice = deviceExiting.withMake(updatedDevice.getMake());
+                 /* TBD
+                   String make = updatedDevice.getMake();
+                   if ( !make.equals("cisco") | !make.equals("juniper") | !make.equals("arista")    ) {
+                   updatedDevice = deviceExiting.withMake(deviceService.generateText()); // modify it
+                  }*/
+        // 2) Updating model field of existing device with user's:
+             //updatedDevice = deviceExiting.withModel(updatedDevice.getModel());
 
         // Updating repo:
             this.deviceRepository.update(updatedDevice);
@@ -67,8 +72,7 @@ public class DeviceController {
         return HttpResponse.ok(updatedDevice);
     }
 
-    // $ curl -X PUT "http://localhost:8080/devices/1/update"  -H "Content-Type: application/json" -d '{ "id": 1, "make":"CISCOx" }'
-
+    // $ curl -X PUT http://localhost:8080/devices/1/update  -H "Content-Type: application/json" -d '{ "id": 1, "make":"CISCOx", "model":"7280R3", "os": "eos" , "year": 2023, "health": 2 }'
 
     @Delete("/{id}")
     @Status(HttpStatus.NO_CONTENT)

@@ -105,7 +105,7 @@ $ curl http://localhost:8080/devices/makes
 
 $ curl -X POST http://localhost:8080/devices/add  -H "Content-Type: application/json" -d '{ "id": 7, "make":"arsta", "model":"7280R3", "os": "eos" , "year": 2023, "health": 2 }'
 
-$ curl -X PUT "http://localhost:8080/devices/1/update"  -H "Content-Type: application/json" -d '{ "id": 1, "make":"CISCOx" }'
+$ curl -X PUT http://localhost:8080/devices/1/update  -H "Content-Type: application/json" -d '{ "id": 1, "make":"CISCOx", "model":"XR250", "os": "iOS" , "year": 2021, "health": 3 }'
 
 $ curl -i -X DELETE http://localhost:8080/devices/1
 
