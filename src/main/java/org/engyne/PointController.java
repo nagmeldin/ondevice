@@ -33,7 +33,6 @@ public class PointController {
         return resultStr;
     }
 
-    // curl http://localhost:8080/points/xs
 
     @Get("/ys")
     List<String> listY(){
@@ -45,7 +44,6 @@ public class PointController {
         return resultStr;
     }
 
-    // curl http://localhost:8080/points/ys
 
     @Get("/distances")
     List<String> getDistances(){
@@ -93,7 +91,6 @@ public class PointController {
         this.pointRepository.save(point);
         return HttpResponse.status(HttpStatus.CREATED).body(point);
     }
-    // $ curl -X POST http://localhost:8080/points/add  -H "Content-Type: application/json" -d '{ "id": 3, "x":-2371.42, "y":-6002.12 }'
 
     @Put("/{id}/update")
     @Status(HttpStatus.OK)
@@ -110,13 +107,10 @@ public class PointController {
         return HttpResponse.ok(updatedPoint);
     }
 
-    // $ curl -X PUT http://localhost:8080/points/1/update  -H "Content-Type: application/json" -d '{ "id": 1, "x":-2371.99, "y":-6002.99 }'
-
     @Delete("/{id}")
     @Status(HttpStatus.NO_CONTENT)
     public void deletePoint(Long id) {
         this.pointRepository.deleteById(id);
     }
 
-    //  $ curl -i -X DELETE http://localhost:8080/points/2
-}
+ }

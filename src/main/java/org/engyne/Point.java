@@ -4,8 +4,6 @@ import io.micronaut.data.annotation.Id;
 import io.micronaut.data.annotation.MappedEntity;
 import io.micronaut.serde.annotation.Serdeable;
 
-import java.math.BigDecimal;
-
 @Serdeable
 @MappedEntity
 public record Point(
@@ -15,7 +13,7 @@ public record Point(
         Double y
 ) {
 
-        // Kinda of constructor setters():
+        // Kinda of constructor setter():
         public Point withXY(Double x, Double y) {
                 return new Point(id, x, y);
         }

@@ -10,7 +10,6 @@ import java.util.List;
 @Controller("/devices")
 public class DeviceController {
 
-
     final DeviceRepository deviceRepository;
     DeviceService  deviceService = new DeviceService();
 
@@ -48,7 +47,6 @@ public class DeviceController {
         this.deviceRepository.save(device);
         return HttpResponse.status(HttpStatus.CREATED).body(device);
     }
-    // curl -X POST http://localhost:8080/devices/add  -H "Content-Type: application/json" -d '{ "id": 7, "make":"arsta", "model":"7280R3", "os": "eos" , "year": 2023, "health": 2 }'
 
     @Put("/{id}/update")
     @Status(HttpStatus.OK)
@@ -72,13 +70,10 @@ public class DeviceController {
         return HttpResponse.ok(updatedDevice);
     }
 
-    // $ curl -X PUT http://localhost:8080/devices/1/update  -H "Content-Type: application/json" -d '{ "id": 1, "make":"CISCOx", "model":"7280R3", "os": "eos" , "year": 2023, "health": 2 }'
-
     @Delete("/{id}")
     @Status(HttpStatus.NO_CONTENT)
     public void deleteDevice(Long id) {
         this.deviceRepository.deleteById(id);
     }
-    // $ curl -i -X DELETE http://localhost:8080/devices/1
 
 }

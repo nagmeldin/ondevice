@@ -19,6 +19,12 @@ public record Location(
         // @Relation(Relation.Kind.ONE_TO_MANY) List<Point> point
         Point point
 ) {
+
+        // Kinda of constructor setter():
+        public Location withCityMarket(String city, String market) {
+                return new Location(id, city, market, point);
+        }
+
         // Getters() allowable-but not setters():
         public Long getId() { return id; }
         public String getCity() { return city; }

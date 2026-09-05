@@ -1,7 +1,9 @@
 package org.engyne;
 
-import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Get;
+import io.micronaut.http.HttpResponse;
+import io.micronaut.http.HttpStatus;
+import io.micronaut.http.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +49,32 @@ public class LocationController {
         return resultStr;
     }
 
+    @Post("/add")                 //TBD
+    @Status(HttpStatus.OK)
+    public HttpResponse<Location> addLocation(@Body Location location) {
 
+        this.locationRepository.save(location);
+        return HttpResponse.status(HttpStatus.CREATED).body(location);
+    }
+
+    @Put("/{id}/update")            //TBD
+    @Status(HttpStatus.OK)
+    public HttpResponse<Location> updateLocation(Long id, @Body Location updatedLocation) {
+
+        Location locationExiting = locationRepository.findById(id).orElseThrow(() -> new RuntimeException("Location is not found"));
+
+        //1) Updating city and market fields of existing location with user's:
+        updatedLocation = locationExiting.withCityMarket(updatedLocation.getCity(), updatedLocation.getMarket());
+
+        this.locationRepository.update(updatedLocation);
+
+        return HttpResponse.ok(updatedLocation);
+    }
+
+    @Delete("/{id}")
+    @Status(HttpStatus.NO_CONTENT)
+    public void deleteLocation(Long id) {
+        this.locationRepository.deleteById(id);
+    }
 
 }

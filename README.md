@@ -121,3 +121,14 @@ $ curl -X PUT http://localhost:8080/points/1/update  -H "Content-Type: applicati
 $ curl -i -X DELETE http://localhost:8080/points/2
 
 
+$ curl http://localhost:8080/locales/
+
+$ curl http://localhost:8080/locales/cities
+
+$ curl -X POST http://localhost:8080/locales/add  -H "Content-Type: application/json" -d '{ "id": 3, "city":"Boston", "market":"East", "point": { "id": 3, "x":-2371.42, "y":-6002.12 }  }'
+
+$ curl -X PUT http://localhost:8080/locales/1/update  -H "Content-Type: application/json" -d '{ "id": 3, "city":"NYC", "market":"Eastern", "point": { "id": 3, "x":-1301.63, "y":-8101.66 } }'
+
+$ curl -i -X DELETE http://localhost:8080/locales/2
+
+

@@ -16,8 +16,6 @@ public class RankController {
     }
 
 
-
-
     //EndPoints design:
 
     @Get("/")
@@ -53,8 +51,3 @@ public class RankController {
         return resultStr;
     }
 }
-
-/* Endpoint testing:
-   http://localhost:8080/ranks/grades
-   http://localhost:8080/ranks/statuses
-*/
