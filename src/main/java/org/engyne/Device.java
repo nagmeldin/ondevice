@@ -46,5 +46,4 @@ public record Device(
         public String getOs() { return os; }
         public int getYear() { return year; }
         public int getHealth() { return health; }
-
 }

@@ -8,6 +8,8 @@
   <include file="changelog/02-insert-device.xml" relativeToChangelogFile="true"/>
   <include file="changelog/01-create-ranks-schema.xml" relativeToChangelogFile="true"/>
   <include file="changelog/02-insert-rank.xml" relativeToChangelogFile="true"/>
+  <include file="changelog/01-create-home-schema.xml" relativeToChangelogFile="true"/>
+  <include file="changelog/02-insert-home.xml" relativeToChangelogFile="true"/>
 
   <include file="changelog/01-create-insert-location-point.xml" relativeToChangelogFile="true"/>
 
