@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="insert-devices" author="neldin">
+        <insert tableName="device">
+            <column name="id"> 01 </column>
+            <column name="make">cisco</column>
+            <column name="model">X2000</column>
+            <column name="year"> 2019</column>
+            <column name="os"> iOS</column>
+            <column name="health"> 5 </column>
+        </insert>
+        <insert tableName="device">
+            <column name="id"> 02 </column>
+            <column name="make">juniper</column>
+            <column name="model">MX5</column>
+            <column name="year"> 2016</column>
+            <column name="os"> junos</column>
+            <column name="health"> 4 </column>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>
