@@ -21,12 +21,14 @@ public class Application {
     } */
 
     public static void main(String[] args) {
+
         SLF4JBridgeHandler.removeHandlersForRootLogger();
         SLF4JBridgeHandler.install();
         Micronaut.run(Application.class, args);
     }
 
-    /* Absent Postgres DB, below are H2 DB test data set:
+    /*
+    Absent Postgres DB, below are H2 DB test data set:
     @EventListener
     @Transactional
     void startup(StartupEvent startupEvent) {
