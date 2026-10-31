@@ -11,7 +11,7 @@ public class HomeController {
     @Get("/")
     @Produces(MediaType.APPLICATION_JSON)
     public String index() {
-        return "  onDevice Inventory App Homepage \n ---------------------------------- \n © 2020 COPYRIGHT ENGYNE ANALYTICS";
+        return "  OnDevice Inventory App Homepage \n\n\n\n\n\n\n\n\n\n -------------------------------- \n © 2020 COPYRIGHT ENGYNE ANALYTICS";
     }
 
 }
